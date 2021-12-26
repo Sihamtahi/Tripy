@@ -1,8 +1,11 @@
 
 
 
+import 'package:cubit_application/misc/colors.dart';
 import 'package:cubit_application/widgets/app_large_text.dart';
 import 'package:cubit_application/widgets/app_text.dart';
+import 'package:cubit_application/widgets/responsive_botton.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class WelcomePage extends StatefulWidget {
@@ -17,6 +20,11 @@ class _WelcomePageState extends State<WelcomePage> {
     "welcome-one.png",
     "welcome-two.png",
     "welcome-three.png"
+  ];
+  // if we want to use many text with the index for each page of the slider ! go ahead
+  List Texts = [
+    "Mountain hikes gives you an incredible sens of freedom along with endurance test "
+
   ];
   @override
   Widget build(BuildContext context) {
@@ -47,9 +55,18 @@ class _WelcomePageState extends State<WelcomePage> {
                        children: [
                          AppLargeText(text: "Trips"),
                          AppText(text: "Mountain", size: 30),
+                         SizedBox(height: 20,),
                          Container(
-                           child: AppText(text: "Mountain", size: 30), ,
-                         )
+                           width: 250,// to go to the next line. Enfin, limiter sa largeur
+                           child: AppText(
+                               text: "Mountain hikes gives you an incredible sens of freedom along with endurance test  ",
+                               color: AppColors.textColor2,
+                               size: 14,
+
+                           ),
+                         ),
+                         SizedBox(height: 40,),
+                         ResponsiveBotton()
                        ],
                      )
                    ],
