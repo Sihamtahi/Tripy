@@ -20,20 +20,33 @@ class _MainPageState extends State<MainPage> {
     SearchPage(),
     MyPage()
   ];
+  int currentIndex =0;
+  void onTap(int index){
+    setState(() {
+      currentIndex =index;
+    });
+
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold( // a scaffold because we want to have the body option and it contains the bottom navigation bar
 
 
-
-      body: pages[0],
+      backgroundColor: Colors.white,
+      body: pages[currentIndex],
 
       bottomNavigationBar: BottomNavigationBar(
+        selectedFontSize: 0,  // pareil
+        unselectedFontSize: 0, // ici pour que la zone en dessous du bottom navigation bar ne soit pas selectable -> pas d'erreur
+        backgroundColor: Colors.white,
+        type: BottomNavigationBarType.fixed,
+        currentIndex: currentIndex, // the default index
         selectedItemColor: Colors.black54,
         unselectedItemColor: Colors.grey.withOpacity(0.5),
         showSelectedLabels: false,
         showUnselectedLabels: false,
         elevation: 0,
+        onTap: onTap,
 
 
 
