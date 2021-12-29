@@ -15,6 +15,7 @@ class Detailpage extends StatefulWidget {
 
 class _DetailpageState extends State<Detailpage> {
   int gottenStars = 4;
+  int selectedIndex=-1 ;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -100,13 +101,27 @@ class _DetailpageState extends State<Detailpage> {
                     AppLargeText(text: "People", color: Colors.black54.withOpacity(0.8), size: 20,),
                     SizedBox(height: 5,),
                     AppText(text: "Number of People in your groupe", color: AppColors.mainTextColor,),
-                    SizedBox(height: 20,),
+                    SizedBox(height: 10,),
                     Wrap(
                       children: List.generate(5, (index) {
-                        return AppButtons(size: 50,
-                            color: Colors.black,
-                            backgroundColor:  AppColors.buttonBackground,
-                            borderColor: AppColors.buttonBackground );
+                        return InkWell(
+                          onTap: (){
+                            setState(() { // because we need to retrigger the build we use SetState
+                              selectedIndex = index;
+                            });
+
+                          },
+                          child: Container(
+                            margin: const EdgeInsets.only(right: 10),
+                            child: AppButtons(
+                                size: 50,
+                                color: selectedIndex == index?Colors.white: Colors.black,
+                                backgroundColor: selectedIndex == index? Colors.black: AppColors.buttonBackground,
+                                borderColor: selectedIndex == index? Colors.black: AppColors.buttonBackground,
+                                text: (index +1 ).toString(),
+                                 ),
+                          ),
+                        );
                       }),
                     )
                     
