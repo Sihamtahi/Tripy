@@ -1,5 +1,6 @@
 
 import 'package:cubit_application/misc/colors.dart';
+import 'package:cubit_application/widgets/app_button.dart';
 import 'package:cubit_application/widgets/app_large_text.dart';
 import 'package:cubit_application/widgets/app_text.dart';
 import 'package:flutter/cupertino.dart';
@@ -13,6 +14,7 @@ class Detailpage extends StatefulWidget {
 }
 
 class _DetailpageState extends State<Detailpage> {
+  int gottenStars = 4;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -87,13 +89,27 @@ class _DetailpageState extends State<Detailpage> {
                       children: [
                         Wrap(
                             children: List.generate(5, (index){
-                              return Icon(Icons.star, color: AppColors.starColor,);
+                              return Icon(Icons.star, color: index< gottenStars?AppColors.starColor: AppColors.textColor2,);
                             })
                         ),
                         SizedBox(width: 10),
                         AppText(text: "(4.0)", color: AppColors.textColor2,)
                       ],
+                    ),
+                    SizedBox(height: 25,),
+                    AppLargeText(text: "People", color: Colors.black54.withOpacity(0.8), size: 20,),
+                    SizedBox(height: 5,),
+                    AppText(text: "Number of People in your groupe", color: AppColors.mainTextColor,),
+                    SizedBox(height: 20,),
+                    Wrap(
+                      children: List.generate(5, (index) {
+                        return AppButtons(size: 50,
+                            color: Colors.black,
+                            backgroundColor:  AppColors.buttonBackground,
+                            borderColor: AppColors.buttonBackground );
+                      }),
                     )
+                    
                   ],
                 ),
           ))
