@@ -3,6 +3,7 @@ import 'package:cubit_application/misc/colors.dart';
 import 'package:cubit_application/widgets/app_button.dart';
 import 'package:cubit_application/widgets/app_large_text.dart';
 import 'package:cubit_application/widgets/app_text.dart';
+import 'package:cubit_application/widgets/responsive_botton.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -123,10 +124,39 @@ class _DetailpageState extends State<Detailpage> {
                           ),
                         );
                       }),
-                    )
-                    
+                    ),
+                    SizedBox(height: 20,),
+                    AppLargeText(text: "Description", color: Colors.black54.withOpacity(0.8), size: 20,),
+                    SizedBox(height: 10,),
+                    AppText(text: "You must go to a travel. Travelling helps get rid of pressure. Go to the mountains to see the nature ",color: AppColors.mainTextColor,),
+                    SizedBox(height: 10,),
+
                   ],
                 ),
+          )),
+          Positioned(
+            bottom: 20,
+              left: 20,
+              right: 20,
+              child: Row(
+
+                children: [
+                  AppButtons(size: 60,
+                      color: AppColors.textColor1,
+                      backgroundColor: Colors.white,
+                      borderColor:  AppColors.textColor1,
+                    isIcon: true,
+                    icon: Icons.favorite_border,
+
+
+                  ),
+                  SizedBox(width: 20,),
+                  ResponsiveBotton(
+                    isResponsive: true,
+
+                  )
+                ],
+
           ))
         ],
         ),
