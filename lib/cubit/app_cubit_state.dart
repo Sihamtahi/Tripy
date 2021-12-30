@@ -3,14 +3,32 @@
 
 import 'package:bloc/bloc.dart';
 import 'package:cubit_application/cubit/app_cubits.dart';
+import 'package:cubit_application/services/data_services.dart';
 
 class AppCubits extends Cubit<CubitStates>
 {
-  AppCubits() : super(InitialState())
+  AppCubits({required this.data}) : super(InitialState())
   {
     emit(WelcomeState());
 
-  } // we will call the initial state
+
+  }
+  final DataServices data;
+  late final places;
+  void getData() async
+  {
+    try{
+        emit(LoadingState());
+        places = await data.getInfo();
+        emit(LoadedState(places));
+    }
+    catch(e)
+    {
+
+    }
+
+  }
+
 
 
 }

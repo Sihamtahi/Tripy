@@ -1,12 +1,14 @@
 
 
 
+import 'package:cubit_application/cubit/app_cubit_state.dart';
 import 'package:cubit_application/misc/colors.dart';
 import 'package:cubit_application/widgets/app_large_text.dart';
 import 'package:cubit_application/widgets/app_text.dart';
 import 'package:cubit_application/widgets/responsive_botton.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class WelcomePage extends StatefulWidget {
   const WelcomePage({Key? key}) : super(key: key);
@@ -66,7 +68,19 @@ class _WelcomePageState extends State<WelcomePage> {
                            ),
                          ),
                          SizedBox(height: 40,),
-                         ResponsiveBotton()
+                         GestureDetector(
+                           onTap: (){
+                             BlocProvider.of<AppCubits>(context).getData();
+                           },
+                           child: Container(
+                              width: 120,
+                               child: Row(
+
+                                 children :[
+                                   ResponsiveBotton(width: 120,)
+                                 ],
+                               )),
+                         )
                        ],
                      ),
                      // the neext column for the slider
