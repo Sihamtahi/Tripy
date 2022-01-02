@@ -1,6 +1,7 @@
 
 import 'package:cubit_application/cubit/app_cubit_state.dart';
 import 'package:cubit_application/cubit/app_cubits.dart';
+import 'package:cubit_application/detail_page.dart';
 import 'package:cubit_application/pages/navpages/home_page.dart';
 import 'package:cubit_application/pages/welcome_page.dart';
 import 'package:flutter/cupertino.dart';
@@ -27,6 +28,10 @@ class _AppCubitLogicssState extends State<AppCubitLogicss> {
           if (state is LoadedState)
           {
             return HomePage( );
+          }
+          if (state is DetailState)
+          {
+            return Detailpage( );
           }
           if (state is LoadingState)
           {

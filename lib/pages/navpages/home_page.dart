@@ -95,20 +95,25 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                           itemCount : info.length,
                           scrollDirection:  Axis.horizontal,
                           itemBuilder: (BuildContext context, int index) {
-                            return Container(
-                              margin: const EdgeInsets.only(right: 10, top: 10),
-                              width: 200,
-                              height: 300,
-                              decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(20),
-                                color: Colors.white,
-                                image: DecorationImage(
-                                    image: NetworkImage(
-                                        "http://mark.bslmeivu.com/uploads/" +info[index].img
-                                    ),
-                                    fit: BoxFit.cover
-                                ),
+                            return GestureDetector(
+                              onTap: () {
+                                BlocProvider.of<AppCubits>(context).DetailPage(info[index]);
+                              },
+                              child: Container(
+                                margin: const EdgeInsets.only(right: 10, top: 10),
+                                width: 200,
+                                height: 300,
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(20),
+                                  color: Colors.white,
+                                  image: DecorationImage(
+                                      image: NetworkImage(
+                                          "http://mark.bslmeiyu.com/uploads/"+info[index].img
+                                      ),
+                                      fit: BoxFit.cover
+                                  ),
 
+                                ),
                               ),
                             );
                           },
