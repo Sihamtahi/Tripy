@@ -44,17 +44,12 @@ class _DetailpageState extends State<Detailpage> {
                               image: NetworkImage("http://mark.bslmeiyu.com/uploads/"+ detail.place.img),
                               fit: BoxFit.cover
                           ),
-
-
                         ),
-
-
                       )),
                   Positioned(
                       left : 20,
                       top: 50,
                       child: Row(
-
                         children: [
                           IconButton(onPressed: (){
                             BlocProvider.of<AppCubits>(context).GoHome();
